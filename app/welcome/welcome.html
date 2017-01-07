@@ -1,50 +1,66 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>WebApp Home Page</title>
-</head>
-<body ng-controller="WelcomeCtrl">
+<html lang="en" >
+   <head>
+      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <script language="javascript">
+         angular
+            .module('firstApplication', ['ngMaterial'])
+            .controller('cardController', cardController);
 
-<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a href="#" class="navbar-brand">WebApp</a>
-		</div>
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="#/welcome">Home</a></li>
-			<li><a href="#/addPost">Add Post</a></li>
-			<li ng-click="logout()"><a href="#">Logout</a></li>
-		</ul>
-	</div>
-</nav>
+         function cardController ($scope) {            
+         }  
+      </script>  
+      <style>
+      	.gridListdemoBasicUsage md-grid-list {
+  margin: 4px;
+}
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<h3>Welcome Home {{username}} !</h3>
-		</div>
-	</div>
-</div>
+.gridListdemoBasicUsage .gray {
+  background: #f5f5f5;
+}
 
-<div class="container">
+.gridListdemoBasicUsage md-grid-tile {
+  transition: all 400ms ease-out 50ms;
+}
+.gridListdemoBasicUsage md-row-height{
+	height:50px;
 
+}
 
-<div layout="row" layout-margin >
-  <md-card  ng-repeat="data in articles">
-   <md-card>
-   <img src="{{data.images}}" class="md-card-image" alt="image caption"/>
-    <md-card-content >
-     <h2>{{data.title}}</h2>
-     <p>{{data.Desc}}</p>
-    </md-card-content>
-       </md-card >
-  </md-card>
-</div>
-
-			</div>
-</div>
+      </style>    
+   </head>
+   <body ng-app="EnoticeBoardWebApp" class="gridListdemoBasicUsage">  
 
 
 
-</body>
+
+
+  <div class='md-padding' layout="row" flex>
+    <div flex layout="row" flex>
+      <div class="parent" layout="row" width="50px" ng-repeat="user in articles" flex>
+        <md-card>
+
+          <img src="{{user.images}}" class="md-media-sm" alt="user avatar">
+          <md-card-content>
+            <h2>{{user.title}}</h2>
+            <p>{{user.Desc}}}</p>
+          </md-card-content>
+          <div class="md-actions" layout="row" layout-align="end center">
+            <md-button>Like</md-button>
+            <md-button>comment</md-button>
+          </div>
+        </md-card>
+      </div>
+    </div>
+  </div>
+
+
+	 
+
+   </body>
 </html>
