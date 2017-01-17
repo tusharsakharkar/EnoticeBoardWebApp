@@ -7,6 +7,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
       <script language="javascript">
          angular
             .module('firstApplication', ['ngMaterial'])
@@ -16,51 +17,122 @@
          }  
       </script>  
       <style>
-      	.gridListdemoBasicUsage md-grid-list {
-  margin: 4px;
+
+.bs-flipper {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
+
+    border: 1px solid #ccc;
 }
 
-.gridListdemoBasicUsage .gray {
-  background: #f5f5f5;
+  .bs-flipper:hover .flipper,  
+  .bs-flipper.hover .flipper {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+
+.bs-flipper, .front, .back {
+  width: 100%;
+height: 266px;
+  
 }
 
-.gridListdemoBasicUsage md-grid-tile {
-  transition: all 400ms ease-out 50ms;
-}
-.gridListdemoBasicUsage md-row-height{
-	height:50px;
+.flipper {
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transition: 0.6s;
+  -moz-transform-style: preserve-3d;
+  
+  -o-transition: 0.6s;
+  -o-transform-style: preserve-3d;
 
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
 }
 
-      </style>    
+.front, .back {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.front {
+
+  z-index: 2;
+}
+
+.back {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+
+  background: #f8f8f8;
+}
+
+.front .name {
+  font-size: 2em;
+  display: inline-block;
+  background: rgba(33, 33, 33, 0.9);
+  color: #f8f8f8;
+  font-family: Courier;
+  padding: 5px 10px;
+  border-radius: 5px;
+  bottom: 60px;
+  left: 25%;
+  position: absolute;
+  text-shadow: 0.1em 0.1em 0.05em #333;
+
+  -webkit-transform: rotate(-20deg);
+  -moz-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+}
+
+
+
+
+
+
+
+
+   </style>    
    </head>
-   <body ng-app="EnoticeBoardWebApp" class="gridListdemoBasicUsage">  
-
-
-
-
-
-  <div class='md-padding' layout="row" flex>
-    <div flex layout="row" flex>
-      <div class="parent" layout="row" width="50px" ng-repeat="user in articles" flex>
-        <md-card>
-
-          <img src="{{user.images}}" class="md-media-sm" alt="user avatar">
-          <md-card-content>
-            <h2>{{user.title}}</h2>
-            <p>{{user.Desc}}}</p>
-          </md-card-content>
-          <div class="md-actions" layout="row" layout-align="end center">
-            <md-button>Like</md-button>
-            <md-button>comment</md-button>
-          </div>
-        </md-card>
-      </div>
+<body ng-app="EnoticeBoardWebApp" >     
+<div class="container">
+  <div class="row">
+      <div class="col-xs-6 col-md-3" padding-top="50px" ng-repeat="user in articles" >
+       <div class="bs-flipper thumbnail" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <div class="front">
+      <img  alt="100%x180" src="{{user.images}}" data-holder-rendered="true" style="height: 256px; width: 100%; display: block;" >
+      <div style="color:#0000FF">
+  <h3>{{user.title}}</h3>
+</div>
+    </div>
+    
+    <div class="back">
+      <img  alt="100%x180" src="{{user.images}}" data-holder-rendered="true" style="height: 256px; width: 100%; display: block;">
+      
+     
     </div>
   </div>
-
-
-	 
+</div>
+      </div>
+    </div> 
+</div>
 
    </body>
+   
 </html>
