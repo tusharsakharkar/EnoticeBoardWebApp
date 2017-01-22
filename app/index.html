@@ -14,7 +14,14 @@
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-
+<script type="text/javascript">
+		function yjScroll() {
+			window.scrollBy(0,1);
+			scrolldelay = setTimeout(yjScroll,10);
+			
+		}
+		yjScroll();
+		</script>
 
 <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 <script>
